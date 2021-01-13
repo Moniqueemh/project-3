@@ -2,7 +2,7 @@ require('dotenv').config();
 
 // Configuration check.
 // Disable this at your own risk
-//require('./utils/verifyConfiguration')();
+require('./utils/verifyConfiguration')();
 
 // Requiring necessary npm packages
 const express = require('express');
@@ -11,7 +11,7 @@ const path = require('path');
 const routes = require('./controllers');
 // Setting up port and requiring models for syncing
 const PORT = process.env.PORT || 3001;
-const mongoose = require('mongoose');
+const db = require('./models');
 // Bringing in Morgan, a nice logger for our server
 const morgan = require('morgan');
 // Compression
@@ -41,14 +41,8 @@ app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, './client/build/index.html'));
 });
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/project3', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-    useFindAndModify: false
+db.sequelize.sync({force:false}).then(function () {
+    app.listen(PORT, function () {
+        console.log(`Server now on port ${PORT}!`);
+    });
 });
-
-app.listen(PORT, function () {
-    console.log(`Server now on port ${PORT}!`);
-});
-

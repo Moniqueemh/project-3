@@ -24,8 +24,9 @@
         "express": "^4.17.0",
         "express-jwt": "^6.0.0",
         "jsonwebtoken": "^8.5.1",
-        "mongoose": "^5.11.9",
-        "morgan": "^1.10.0"
+        "morgan": "^1.10.0",
+        "mysql2": "^1.6.5",
+        "sequelize": "^6.3.5"
     },
     "devDependencies": {
         "@typescript-eslint/eslint-plugin": "^4.11.0",

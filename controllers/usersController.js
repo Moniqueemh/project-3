@@ -6,7 +6,7 @@ const isAuthenticated = require('../utils/middleware').isAuthenticated;
  * User Read - All
  */
 router.get('/', isAuthenticated, function(req, res) {
-    db.User.find(req.query)
+    db.User.findAll(req.query)
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
 });
@@ -15,7 +15,7 @@ router.get('/', isAuthenticated, function(req, res) {
  * User Read - One
  */
 router.get('/:id', isAuthenticated, function(req, res) {
-    db.User.findById(req.params.id)
+    db.User.findByPk(req.params.id)
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
 });
@@ -26,7 +26,8 @@ router.get('/:id', isAuthenticated, function(req, res) {
  * This allows for us to modify a user's password, as defined in the User model
  */
 router.post('/', isAuthenticated, function(req, res) {
-    db.User.create(req.body)
+    db.User.scope('withPassword')
+        .create(req.body)
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
 });
@@ -35,7 +36,7 @@ router.post('/', isAuthenticated, function(req, res) {
  * User - Update
  */
 router.put('/:id', isAuthenticated, function(req, res) {
-    db.User.findByIdAndUpdate(req.params.id, req.body)
+    db.User.update(req.body, { where: { id: req.params.id }})
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
 });
@@ -44,7 +45,7 @@ router.put('/:id', isAuthenticated, function(req, res) {
  * User - Delete
  */
 router.delete('/:id', isAuthenticated, function(req, res) {
-    db.User.findByIdAndDelete(req.params.id)
+    db.User.destroy({ where: { id: req.params.id }})
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
 });

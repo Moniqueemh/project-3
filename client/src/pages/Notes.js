@@ -16,8 +16,9 @@ const Notes = function () {
         fetchNotes();
     }, [refresh]);
 
+    // Check out that include!
     async function fetchNotes() {
-        const { data } = await axios.get('/api/notes');
+        const { data } = await axios.get('/api/notes?include=User');
         setNotes(data);
     }
     return (
@@ -26,8 +27,8 @@ const Notes = function () {
             <ol>
                 {notes.map(note => {
                     return (
-                        <li key={note._id}>
-                            <strong>{note.title}</strong> {note.body} <sub>from: {note.user.email}</sub>
+                        <li key={note.id}>
+                            <strong>{note.title}</strong> {note.body} <sub>from: {note.User.email}</sub>
                         </li>
                     );
                 })}

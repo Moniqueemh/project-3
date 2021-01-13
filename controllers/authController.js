@@ -10,7 +10,7 @@ router.post('/login', async (req, res) => {
     try {
         const { email, password } = req.body;
         // Find user
-        const user = await db.User.findOne({ email:email });
+        const user = await db.User.scope('withPassword').findOne({ where: {email:email }});
         if (!user) {
             res.status(400).send('User not found.');
         }
@@ -20,7 +20,7 @@ router.post('/login', async (req, res) => {
         }
         // Create JWT token
         const token = await signAsync(
-            { _id: user._id, email: user.email },
+            { id: user.id, email: user.email },
             process.env.SECRET,
             {
                 expiresIn: '24h',
@@ -30,7 +30,7 @@ router.post('/login', async (req, res) => {
         // send token and user data back. Selecting only certain parts of the user
         res.json({
             token, user: {
-                _id: user._id,
+                id: user.id,
                 email: user.email
             }
         });
@@ -55,7 +55,7 @@ router.post('/signup', async (req, res) => {
         }
         // Create JWT token
         const token = await signAsync(
-            { _id: user._id, email: user.email },
+            { id: user.id, email: user.email },
             process.env.SECRET,
             {
                 expiresIn: '24h',
@@ -65,7 +65,7 @@ router.post('/signup', async (req, res) => {
         // send token and user data back. Selecting only certain parts of the user
         res.json({
             token, user: {
-                _id: user._id,
+                id: user.id,
                 email: user.email
             }
         });
