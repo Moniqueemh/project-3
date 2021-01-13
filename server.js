@@ -2,7 +2,7 @@ require('dotenv').config();
 
 // Configuration check.
 // Disable this at your own risk
-require('./utils/verifyConfiguration')();
+//require('./utils/verifyConfiguration')();
 
 // Requiring necessary npm packages
 const express = require('express');
