@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 
 class Addteacher extends Component {
@@ -15,23 +15,23 @@ class Addteacher extends Component {
     }
 
     handleChange(event) {
-        if (event.target.name == 'teacher') {
-            this.setState({ name: event.target.value })
-        } else if (event.target.name == 'school') {
-            this.setState({ address: event.target.value })
+        if (event.target.name === 'teacher') {
+            this.setState({ name: event.target.value });
+        } else if (event.target.name === 'school') {
+            this.setState({ address: event.target.value });
         } else {
-            this.setState({ phone: event.target.value })
+            this.setState({ phone: event.target.value });
 
 
         }
 
 
     }
-// TODO: api for add school
+    // TODO: api for add school
     handleSubmit(event) {
 
-        console.log(event)
-        console.log(this.state)
+        console.log(event);
+        console.log(this.state);
         event.preventDefault();
     }
 
@@ -41,19 +41,18 @@ class Addteacher extends Component {
 
                 <label>
                     Name:
-            <input name='teacher' type="text" value={this.state.name} onChange={this.handleChange} />
+                    <input name='teacher' type="text" value={this.state.name} onChange={this.handleChange} />
                 </label>
 
                 <label>
                     school:
-            <input name='school' type="text" value={this.state.address} onChange={this.handleChange} />
+                    <input name='school' type="text" value={this.state.address} onChange={this.handleChange} />
                 </label>
 
                 <label>
                     students :
-            <input name='students' type="text" value={this.state.phone} onChange={this.handleChange} />
+                    <input name='students' type="text" value={this.state.phone} onChange={this.handleChange} />
                 </label>
-                
 
 
                 <input type="submit" value="Submit" />
@@ -61,4 +60,4 @@ class Addteacher extends Component {
         );
     }
 }
-export default Addteacher
+export default Addteacher;

@@ -1,14 +1,14 @@
-import React from 'react'
+import React from 'react';
 
-let student = ({ history }) => {
+const student = ({ history }) => {
     console.log(history);
     return (
         <div>
             <h1> student </h1>
 
         </div>
-    )
+    );
 
-}
-export default student
+};
+export default student;
 

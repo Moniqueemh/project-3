@@ -9,12 +9,12 @@ import Login from './pages/Login';
 import Notes from './pages/Notes';
 
 
-import SchoolList from './componenet/school/schoolList'
-import Header from './componenet/layout/header'
+import SchoolList from './components/school/schoolList';
+import Header from './components/layout/header';
 
-import Studentlist from "./componenet/student/studentList"
+import Studentlist from './components/student/studentList';
 
-import teacherList from "./componenet/teacher/teacherList"
+import teacherList from './components/teacher/teacherList';
 
 function App() {
     // Pull auth token from storage, in case you refresh the page
@@ -41,6 +41,7 @@ function App() {
     return (
         <Router>
             <Navbar />
+            <Header></Header>
             <Switch>
                 <Route exact path='/'>
                     <Home />
@@ -51,11 +52,10 @@ function App() {
                 <Route path='/login'>
                     <Login />
                 </Route>
-                <Header></Header>
-              <Route path="/schools"   component={SchoolList}  />
-              <Route path="/students"   component={Studentlist}  />
-              <Route path="/teacher"   component={teacherList}  />
-
+                
+                <Route path="/schools" component={SchoolList} />
+                <Route path="/students" component={Studentlist} />
+                <Route path="/teacher" component={teacherList} />
 
 
                 <PrivateRoute exact path='/notes'>
