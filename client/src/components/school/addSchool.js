@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 
 class Addschool extends Component {
@@ -15,23 +15,23 @@ class Addschool extends Component {
     }
 
     handleChange(event) {
-        if (event.target.name == 'school') {
-            this.setState({ name: event.target.value })
-        } else if (event.target.name == 'address') {
-            this.setState({ address: event.target.value })
+        if (event.target.name === 'school') {
+            this.setState({ name: event.target.value });
+        } else if (event.target.name === 'address') {
+            this.setState({ address: event.target.value });
         } else {
-            this.setState({ phone: event.target.value })
+            this.setState({ phone: event.target.value });
 
 
         }
 
 
     }
-// TODO: api for add school & local stroger
+    // TODO: api for add school & local stroger
     handleSubmit(event) {
 
-        console.log(event)
-        console.log(this.state)
+        console.log(event);
+        console.log(this.state);
         event.preventDefault();
         // set  
     }
@@ -42,19 +42,18 @@ class Addschool extends Component {
 
                 <label>
                     Name:
-            <input name='school' type="text" value={this.state.name} onChange={this.handleChange} />
+                    <input name='school' type="text" value={this.state.name} onChange={this.handleChange} />
                 </label>
 
                 <label>
                     address:
-            <input name='address' type="text" value={this.state.address} onChange={this.handleChange} />
+                    <input name='address' type="text" value={this.state.address} onChange={this.handleChange} />
                 </label>
 
                 <label>
                     phone-Number :
-            <input name='phone' type="text" value={this.state.phone} onChange={this.handleChange} />
+                    <input name='phone' type="text" value={this.state.phone} onChange={this.handleChange} />
                 </label>
-                
 
 
                 <input type="submit" value="Submit" />
@@ -62,4 +61,4 @@ class Addschool extends Component {
         );
     }
 }
-export default Addschool
+export default Addschool;

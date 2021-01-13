@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
-import School from './school'
-import Addschool from './addSchool'
+import React, { Component } from 'react';
+import School from './school';
+import Addschool from './addSchool';
 
 
 export default class schoolList extends Component {
@@ -11,18 +11,18 @@ export default class schoolList extends Component {
     render() {
         return (
             <div>
-               {/* <Addschool></Addschool> */}
-               <button>Add School</button>
+                <Addschool></Addschool>
+                <button>Add School</button>
                 {
                     this.state.schools.map(school => {
-                        return <School key={school} data={school}></School>
+                        return <School key={school} data={school}></School>;
 
                     })
 
                 }
 
             </div>
-        )
+        );
     }
 }
 

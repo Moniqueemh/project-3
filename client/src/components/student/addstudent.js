@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 
 class Addstudent extends Component {
@@ -16,23 +16,23 @@ class Addstudent extends Component {
     }
 
     handleChange(event) {
-        if (event.target.name == 'student') {
-            this.setState({ name: event.target.value })
-        } else if (event.target.name == 'address') {
-            this.setState({ address: event.target.value })
+        if (event.target.name === 'student') {
+            this.setState({ name: event.target.value });
+        } else if (event.target.name === 'address') {
+            this.setState({ address: event.target.value });
         } else {
-            this.setState({ phone: event.target.value })
+            this.setState({ phone: event.target.value });
 
 
         }
 
 
     }
-// TODO: api for add school
+    // TODO: api for add school
     handleSubmit(event) {
 
-        console.log(event)
-        console.log(this.state)
+        console.log(event);
+        console.log(this.state);
         event.preventDefault();
     }
 
@@ -42,17 +42,17 @@ class Addstudent extends Component {
 
                 <label>
                     Name:
-            <input name='student' type="text" value={this.state.name} onChange={this.handleChange} />
+                    <input name='student' type="text" value={this.state.name} onChange={this.handleChange} />
                 </label>
 
                 <label>
                     address:
-            <input name='address' type="text" value={this.state.address} onChange={this.handleChange} />
+                    <input name='address' type="text" value={this.state.address} onChange={this.handleChange} />
                 </label>
 
                 <label>
                     phone-Number :
-            <input name='phone' type="text" value={this.state.phone} onChange={this.handleChange} />
+                    <input name='phone' type="text" value={this.state.phone} onChange={this.handleChange} />
                 </label>
 
 
@@ -61,4 +61,4 @@ class Addstudent extends Component {
         );
     }
 }
-export default Addstudent
+export default Addstudent;
