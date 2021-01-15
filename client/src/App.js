@@ -1,4 +1,4 @@
-import Navbar from './components/Navbar';
+// import Navbar from './components/Navbar';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import axios from 'axios';
@@ -40,7 +40,6 @@ function App() {
     
     return (
         <Router>
-            <Navbar />
             <Header></Header>
             <Switch>
                 <Route exact path='/'>
@@ -52,7 +51,7 @@ function App() {
                 <Route path='/login'>
                     <Login />
                 </Route>
-                
+            
                 <Route path="/schools" component={SchoolList} />
                 <Route path="/students" component={Studentlist} />
                 <Route path="/teacher" component={teacherList} />
