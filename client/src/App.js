@@ -15,6 +15,7 @@ import Header from './components/layout/header';
 import Studentlist from './components/student/studentList';
 
 import teacherList from './components/teacher/teacherList';
+import Addschool from './components/school/addSchool';
 
 function App() {
     // Pull auth token from storage, in case you refresh the page
@@ -30,14 +31,14 @@ function App() {
         const { message } = error.toJSON();
         // If we had time, we could write our own custom method to the auth middleware
         // However, we are just gonna use their message.
-        if(message === 'Request failed with status code 401'){
+        if (message === 'Request failed with status code 401') {
             logout();
         }
         // Any status codes that falls outside the range of 2xx cause this function to trigger
         // Do something with response error
         return Promise.reject(error);
     });
-    
+
     return (
         <Router>
             <Header></Header>
@@ -51,7 +52,12 @@ function App() {
                 <Route path='/login'>
                     <Login />
                 </Route>
-            
+
+                <Route path='/add-school'>
+                    <Addschool />
+                </Route>
+
+
                 <Route path="/schools" component={SchoolList} />
                 <Route path="/students" component={Studentlist} />
                 <Route path="/teacher" component={teacherList} />
