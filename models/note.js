@@ -17,7 +17,12 @@ module.exports = function (sequelize, DataTypes) {
     Note.associate = function (models) {
     // We're saying that a Note should belong to an User
     // A Note can't be created without an User due to the foreign key constraint
-        Note.belongsTo(models.User, {
+        Note.belongsTo(models.Teacher, {
+            foreignKey: {
+                allowNull: false
+            }
+        });
+        Note.belongsTo(models.Student, {
             foreignKey: {
                 allowNull: false
             }
