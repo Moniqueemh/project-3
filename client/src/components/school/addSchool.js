@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 
 class Addschool extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            name: '',
-            address: '',
-            phone: ''
-        };
+    state = {
+        name: '',
+        address: '',
+        phone: ''
+    };
+    // constructor(props) {
+    //     super(props);
 
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
+    //     this.handleChange = this.handleChange.bind(this);
+    //     this.handleSubmit = this.handleSubmit.bind(this);
+    // }
 
     handleChange(event) {
         if (event.target.name === 'school') {
@@ -33,26 +34,35 @@ class Addschool extends Component {
         console.log(event);
         console.log(this.state);
         event.preventDefault();
-        // set  
+        axios({
+            method: 'post',
+            url: '/api/school',
+            data: this.state
+        }).then(() => {
+            //TODO fix redirection
+            const { history } = this.props;
+            console.log(this.props);
+            if (history) { history.push('/schools'); }
+        });
     }
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={(e) => this.handleSubmit(e)}>
 
                 <label>
                     Name:
-                    <input name='school' type="text" value={this.state.name} onChange={this.handleChange} />
+                    <input name='school' type="text" value={this.state.name} onChange={(e) => this.handleChange(e)} />
                 </label>
 
                 <label>
                     address:
-                    <input name='address' type="text" value={this.state.address} onChange={this.handleChange} />
+                    <input name='address' type="text" value={this.state.address} onChange={(e) => this.handleChange(e)} />
                 </label>
 
                 <label>
                     phone-Number :
-                    <input name='phone' type="text" value={this.state.phone} onChange={this.handleChange} />
+                    <input name='phone' type="text" value={this.state.phone} onChange={(e) => this.handleChange(e)} />
                 </label>
 
 
