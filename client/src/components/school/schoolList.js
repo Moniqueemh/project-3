@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import School from './school';
+import axios from 'axios';
 
 export default class schoolList extends Component {
     state = {
@@ -7,12 +8,14 @@ export default class schoolList extends Component {
     }
     // TODO did mount // set states 
     componentDidMount() {
-
-        this.setState({
-
-            schools: ['shcool1']
-
+        axios('/api/school').then(res => {
+            const resluts = res.data;
+            console.log(resluts);
+            this.setState({
+                schools: resluts
+            });
         });
+
 
     }
 
@@ -28,7 +31,7 @@ export default class schoolList extends Component {
                         //         <label></label>
                         //         <h1></h1>
                         //     </div>
-                        return <School key={element} data={element}></School>;
+                        return <School key={element.id} data={element}></School>;
                     })
 
                 }
