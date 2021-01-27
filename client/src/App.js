@@ -16,6 +16,7 @@ import Studentlist from './components/student/studentList';
 
 import teacherList from './components/teacher/teacherList';
 import Addschool from './components/school/addSchool';
+import Addstudent from './components/student/addstudent';
 
 function App() {
     // Pull auth token from storage, in case you refresh the page
@@ -55,6 +56,10 @@ function App() {
 
                 <Route path='/add-school'>
                     <Addschool />
+                </Route>
+
+                <Route path='/add-student'>
+                    <Addstudent />
                 </Route>
 
 

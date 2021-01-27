@@ -1,11 +1,9 @@
 import React from 'react';
 
-const student = ({ history }) => {
-    console.log(history);
+const student = (props) => {
     return (
         <div>
-            <h1> student </h1>
-
+            <h1> {props.data.name} </h1>
         </div>
     );
 
