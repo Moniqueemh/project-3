@@ -1,12 +1,12 @@
 function Home() {
 
     return (
-        <div>
+        <div class='pt-3 text-center font-details pb-3'>
             <h2>
-                Home Page
+                School Calendar
             </h2>
             <p>
-                Welcome Home
+                2020-2021
             </p>
         </div>
     );
