@@ -11,6 +11,7 @@ import Notes from './pages/Notes';
 // homepage components
 import MyCarousel from './components/carousel/carousel.comp';
 import TitleMessage from './components/title/title.comp';
+import Footer from './components/footer/footer';
 
 import SchoolList from './components/school/schoolList';
 import Header from './components/layout/header';
@@ -54,19 +55,23 @@ function App() {
                 </Route>
                 <Route path='/signup'>
                     <Signup />
+                    <MyCarousel />
                 </Route>
                 <Route path='/login'>
                     <Login />
+                    <MyCarousel />
                 </Route>
 
                 <Route path='/add-school'>
                     <Addschool />
+                    <MyCarousel />
                 </Route>
 
                 <Route path='/add-student'>
                     <Addstudent />
+                    <MyCarousel />
                 </Route>
-
+                
 
                 <Route path="/schools" component={SchoolList} />
                 <Route path="/students" component={Studentlist} />
@@ -76,8 +81,9 @@ function App() {
                 <PrivateRoute exact path='/notes'>
                     <Notes />
                 </PrivateRoute>
+                
             </Switch>
-
+            <Footer />
         </Router>
     );
 }

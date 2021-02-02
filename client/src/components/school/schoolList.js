@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import School from './school';
 import axios from 'axios';
+import './school.css';
 
 export default class schoolList extends Component {
     state = {
