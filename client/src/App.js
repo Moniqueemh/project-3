@@ -12,6 +12,7 @@ import Notes from './pages/Notes';
 import MyCarousel from './components/carousel/carousel.comp';
 import TitleMessage from './components/title/title.comp';
 import Footer from './components/footer/footer';
+import Calendar from './components/calendar/calendar';
 
 import SchoolList from './components/school/schoolList';
 import Header from './components/layout/header';
@@ -21,9 +22,6 @@ import Studentlist from './components/student/studentList';
 import teacherList from './components/teacher/teacherList';
 import Addschool from './components/school/addSchool';
 import Addstudent from './components/student/addstudent';
-
-// react calendar
-import Calendar from 'react-calendar';
 
 function App() {
     // Pull auth token from storage, in case you refresh the page
@@ -54,6 +52,7 @@ function App() {
                 <Route exact path='/'>
                     <MyCarousel />
                     <TitleMessage />
+                    
                     <Home />
                 </Route>
                 <Route path='/signup'>
@@ -74,7 +73,10 @@ function App() {
                     <Addstudent />
                     <MyCarousel />
                 </Route>
-                
+
+                <Route path='/calendar'>
+                    <Calendar />
+                </Route>
 
                 <Route path="/schools" component={SchoolList} />
                 <Route path="/students" component={Studentlist} />
@@ -84,9 +86,11 @@ function App() {
                 <PrivateRoute exact path='/notes'>
                     <Notes />
                 </PrivateRoute>
-                
+
             </Switch>
+
             <Footer />
+
         </Router>
     );
 }
@@ -113,20 +117,5 @@ function PrivateRoute({ children, ...rest }) {
         />
     );
 }
-
-// calendar
-function MyCalendar() {
-    const [value, onChange] = useState(new Date());
-
-    return (
-        <div>
-            <Calendar
-                onChange={onChange}
-                value={value}
-            />
-        </div>
-    );
-}
-
 
 export default App;
