@@ -21,6 +21,9 @@ import teacherList from './components/teacher/teacherList';
 import Addschool from './components/school/addSchool';
 import Addstudent from './components/student/addstudent';
 
+// react calendar
+import Calendar from 'react-calendar';
+
 function App() {
     // Pull auth token from storage, in case you refresh the page
     const { getToken, logout } = useAuth();
@@ -102,6 +105,20 @@ function PrivateRoute({ children, ...rest }) {
                     )
             }
         />
+    );
+}
+
+// calendar
+function MyCalendar() {
+    const [value, onChange] = useState(new Date());
+
+    return (
+        <div>
+            <Calendar
+                onChange={onChange}
+                value={value}
+            />
+        </div>
     );
 }
 
