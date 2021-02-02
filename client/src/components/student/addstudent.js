@@ -89,7 +89,7 @@ class Addstudent extends Component {
                 <label htmlFor="school"> select a school</label>
 
                 <select value={this.state.SchoolId} onChange={(e) => this.handleChange(e)} name="SchoolId" id="school">
-
+                    <option>... اختر </option>
                     {
                         this.state.schools.map(school => {
                             //    return <div key={element.id}>

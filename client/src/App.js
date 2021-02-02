@@ -17,6 +17,10 @@ import Studentlist from './components/student/studentList';
 import teacherList from './components/teacher/teacherList';
 import Addschool from './components/school/addSchool';
 import Addstudent from './components/student/addstudent';
+import Addteacher from './components/teacher/addteacher';
+import SchoolDetials from './components/school/schoolDetials';
+import TeacherDetails from './components/teacher/teacherDetails';
+import StudentDetails from './components/student/studentDetails';
 
 function App() {
     // Pull auth token from storage, in case you refresh the page
@@ -62,6 +66,21 @@ function App() {
                     <Addstudent />
                 </Route>
 
+                <Route path='/add-teacher'>
+                    <Addteacher />
+                </Route>
+
+                <Route path={'/schools/:id'}>
+                    <SchoolDetials />
+                </Route>
+
+
+                <Route path={'/teacher/:id'}>
+                    <TeacherDetails />
+                </Route>
+                <Route path={'/student/:id'}>
+                    <StudentDetails />
+                </Route>
 
                 <Route path="/schools" component={SchoolList} />
                 <Route path="/students" component={Studentlist} />

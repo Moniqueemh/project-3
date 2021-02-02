@@ -17,6 +17,10 @@ module.exports = function (sequelize, DataTypes) {
             phone: {
                 type: DataTypes.STRING,
                 allowNull: false
+            },
+            city: {
+                type: DataTypes.STRING,
+                allowNull: false
             }
         }
     );
