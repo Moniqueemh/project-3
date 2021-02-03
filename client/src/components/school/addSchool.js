@@ -7,7 +7,8 @@ class Addschool extends Component {
     state = {
         name: '',
         address: '',
-        phone: ''
+        phone: '', 
+        city:''
     };
     // constructor(props) {
     //     super(props);
@@ -21,6 +22,10 @@ class Addschool extends Component {
             this.setState({ name: event.target.value });
         } else if (event.target.name === 'address') {
             this.setState({ address: event.target.value });
+            
+        }else if (event.target.name === 'city') {
+            this.setState({ city: event.target.value });
+            
         } else {
             this.setState({ phone: event.target.value });
 
@@ -65,7 +70,10 @@ class Addschool extends Component {
                     phone-Number :
                     <input name='phone' type="text" value={this.state.phone} onChange={(e) => this.handleChange(e)} />
                 </label>
-
+                <label>
+                    city :
+                    <input name='city' type="text" value={this.state.city} onChange={(e) => this.handleChange(e)} />
+                </label>
 
                 <input type="submit" value="Submit" />
             </form>

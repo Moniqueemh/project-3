@@ -27,7 +27,6 @@ router.get('/:id', isAuthenticated, function(req, res) {
  */
 router.post('/', isAuthenticated, function(req, res) {
     db.Teacher.create({
-        UserId: req.user.id,
         ...req.body
     })
         .then(dbModel => res.json(dbModel))
